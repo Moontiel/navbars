@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu top</title>
+    <link rel="stylesheet" href="./sass/style.css">
+</head>
+<body>
+    <!--  
+        section_header: contenedor de la seccion, le definimos un ID
+        para implementar este elemento en javascript
+    -->
+    <header class="section_header" id="scroll-header">
+        <!--  
+            container_header: contenedor definido para manejar el 
+            responsive de la seccion
+        -->
+        <div class="container_header">
+            <!--  
+                flexbox_header: contenedor definido para implementar
+                flexbox o grid en la seccion
+            -->
+            <div class="flexbox_header">
+                <!-- 
+                    box_logoNit_iconBurger: contenedor de 1 tag-a y 1 tag-svg    
+                -->
+                <div class="box_logoNit_iconBurger">
+                    <!-- 
+                        tag-a: en esta definimos el logo o nit empresarial 
+                    -->
+                    <a href="./index.html">CITLIALLY</a>
+
+                    <!-- 
+                        tag-svg: en esta definimos el icon burger, le definimos un
+                        ID para implementar este elemento en javascript
+                    -->
+                    <svg 
+                        viewBox="0 0 24 24"
+                        id="icon-burger"
+                    >
+                        <path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z"></path>
+                    </svg> 
+                </div>
+            
+                <!--  
+                    nav_header: contenedor de ul_header, le definimos un ID para 
+                    implementar este elemento en javascript
+                -->
+                <nav class="nav_header" id="nav-header">
+                    <!--  
+                        ul_header: contenedor de 5 tags-li
+                    -->			
+                    <ul class="ul_header">
+                        <!--  
+                            tag-li: contenedor de 1 tag-a
+                        -->
+                        <li>
+                            <!--  
+                                tag-a: en esta definimos el enlace del menu de navegacion
+                            -->
+                            <a href="#" class="js_links_active">Inicio</a>
+                        </li>				
+                        
+                        <li>
+                            <a href="#">Servicios</a>			
+                        </li>
+                        
+                        <li>
+                            <a href="#">Tienda</a>										
+                        </li>
+
+                        <li>
+                            <a href="#">Blog</a>
+                        </li>                 
+
+                        <li>
+                            <a href="#">Contacto</a>
+                        </li>   
+                    </ul>
+                </nav>
+            </div>
+        </div>
+	</header>
+
+    <main>main</main>
+
+    <footer>footer</footer>
+
+    <script src="./js/main.js"></script>
+</body>
+</html>

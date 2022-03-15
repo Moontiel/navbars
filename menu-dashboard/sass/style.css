@@ -1,0 +1,230 @@
+@charset "UTF-8";
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/*
+	section_header
+*/
+.section_header {
+  /*
+  	js_scroll_header: clase añadida con javascript, definimos 
+  	position: fixed y sus propiedades left, top, right y z-index 
+  	para fijar el menu de navegacion y que este tome el ancho total 
+  	del viewport
+  */
+  /*
+  	container_header: definimos un margin: 0 auto para que este
+         contenedor siempre este centrado
+  */
+}
+.section_header.js_scroll_header {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  z-index: 9;
+  background-color: #fff;
+  transition: box-shadow 0.3s;
+}
+.section_header .container_header {
+  /*
+  	@query 992px ==> : definimos un width mas margin: 0 auto 
+  	para que este contenedor siempre este centrado
+  */
+  /*
+  	flexbox_header
+  */
+}
+@media (min-width: 992px) {
+  .section_header .container_header {
+    width: 90%;
+    margin: 0 auto;
+  }
+}
+.section_header .container_header .flexbox_header {
+  /*
+  	box_iconBurger_nitLogo: definimos flexbox y sus propiedades
+  	justify-content y align-items para centrar los elementos que
+  	este contiene de manera vertical y horizontal, finalmente con
+  	width manejamos el ancho de este contenedor el cual centramos
+  	implementando margin: 0 auto
+  */
+  /*
+  	tag-nav: definimos fixed y sus propiedades 
+  	top, left, right bottom y z-index para que esta caja
+  	ocupe el 100% del viewport, finalmente display:none 
+  	para remover de la vista este elemento
+  */
+}
+.section_header .container_header .flexbox_header .box_iconBurger_nitLogo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 90px;
+  padding: 0 30px;
+  /*
+  	tag-svg: (icon-burger)
+  */
+  /*
+  	tag-a: definimos position: relative ya que en el pseudo-elemento
+  	definimos position: absolute
+  */
+}
+.section_header .container_header .flexbox_header .box_iconBurger_nitLogo svg {
+  fill: #333;
+  width: 33px;
+  height: 33px;
+  cursor: pointer;
+}
+.section_header .container_header .flexbox_header .box_iconBurger_nitLogo a {
+  text-decoration: none;
+  position: relative;
+  letter-spacing: 0.1rem;
+  /*
+  	pseudo elemento before: definimos display block
+  	para hacer visible este elemento, definimos position: absolute
+  	con sus propiedades left y bottom para posicionar este
+  	con referencia a su padre, finalmente definimos width y height
+  	para darle tamaño al elemento en este caso un borde en la parte 
+  	inferior de la tag-a
+  */
+}
+.section_header .container_header .flexbox_header .box_iconBurger_nitLogo a::before {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  background-color: palevioletred;
+  width: 70px;
+  height: 3px;
+}
+.section_header .container_header .flexbox_header .nav_header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 5;
+  background-color: #33333377;
+  display: none;
+  transition: display 0.3s;
+  /*
+  	js_show_menu: clase añadida con javascript donde
+  	definimos flexbox para hacer visible el menu de
+  	navegacion 
+  */
+  /*
+  	ul_header: definimos un width y height para darle tamaño
+  	al menu y que ocupe todo el alto de su contenedor padre
+  */
+}
+.section_header .container_header .flexbox_header .nav_header.js_show_menu {
+  display: flex;
+}
+.section_header .container_header .flexbox_header .nav_header .ul_header {
+  background-color: #fff;
+  width: 250px;
+  height: 100%;
+  /*
+  	box_title_iconClose: definimos flexbox y sus propiedades
+  	justify-content y align-items mas la propiedad height
+  	para centrar los elementos que este contiene de manera 
+  	vertical y horizontal
+  */
+  /*
+  	tag-li
+  */
+}
+.section_header .container_header .flexbox_header .nav_header .ul_header .box_title_iconClose {
+  display: flex;
+  justify-content: space-between;
+  height: 90px;
+  align-items: center;
+  padding: 0 16px;
+  cursor: pointer;
+  /*
+  	tag-h3
+  */
+  /*
+  	tag-svg
+  */
+}
+.section_header .container_header .flexbox_header .nav_header .ul_header .box_title_iconClose h3 {
+  color: #333;
+}
+.section_header .container_header .flexbox_header .nav_header .ul_header .box_title_iconClose svg {
+  fill: #333;
+  width: 33px;
+  height: 33px;
+  cursor: pointer;
+}
+.section_header .container_header .flexbox_header .nav_header .ul_header li {
+  list-style: none;
+  border-bottom: 1px solid #ccc;
+  padding: 16px 10px;
+  /*
+  	cuando hacemos :hover sobre tag-li, relacionamos a
+  	tag-a y cambiamos su color
+  */
+  /*
+  	cuando hacemos :hover sobre tag-li, relacionamos a
+  	tag-svg y cambiamos su color
+  */
+  /*
+  	tag-a: definimos display: inline-flex y align-items
+  	para centrar de manera vertical los elementos que 
+  	este contiene
+  */
+}
+.section_header .container_header .flexbox_header .nav_header .ul_header li:hover a {
+  color: palevioletred;
+}
+.section_header .container_header .flexbox_header .nav_header .ul_header li:hover svg {
+  fill: palevioletred;
+}
+.section_header .container_header .flexbox_header .nav_header .ul_header li a {
+  text-decoration: none;
+  color: #ccc;
+  display: inline-flex;
+  align-items: center;
+  /*
+  	js_link_active: clase añadida con javascript la
+  	cual cambia el color de las tag-a
+  */
+  /*
+  	js_links_active: cuando tag-a tiene esta clase
+  	relacionamos a tag-svg y cambiamos su color
+  */
+  /*
+  	tag-svg: definimos un margin-right para separ
+  	los iconos de los enlaces
+  */
+}
+.section_header .container_header .flexbox_header .nav_header .ul_header li a.js_links_active {
+  color: palevioletred;
+}
+.section_header .container_header .flexbox_header .nav_header .ul_header li a.js_links_active svg {
+  fill: palevioletred;
+}
+.section_header .container_header .flexbox_header .nav_header .ul_header li a svg {
+  fill: #ccc;
+  width: 24px;
+  height: 24px;
+  margin-right: 12px;
+}
+
+main, footer {
+  text-align: center;
+  background-color: #88e4e4;
+  color: #fff;
+  height: 600px;
+}
+
+footer {
+  background-color: dodgerblue;
+  height: 140px;
+}/*# sourceMappingURL=style.css.map */

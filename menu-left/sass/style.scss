@@ -1,0 +1,320 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*
+	section_header
+*/
+.section_header {
+	/*
+		js_scroll_header: clase añadida con javascript, definimos 
+		position: fixed y sus propiedades left, top, right y z-index 
+		para fijar el menu de navegacion y que este tome el ancho total 
+		del viewport
+	*/
+	&.js_scroll_header {
+		position: fixed;
+		left: 0;
+		top: 0;
+		right: 0;
+		z-index: 9;
+		background-color: #fff;
+		// box-shadow: 0 2px 10px #333;
+		transition: box-shadow .3s;
+	}
+
+	/*
+		container_header
+	*/
+	.container_header {
+
+		/*
+			header_flexbox
+		*/
+		.flexbox_header {
+
+			/*
+				content_nit_socials_media: definimos flexbox y sus propiedades
+				justify-content y align-items para centrar los elementos que
+				este contiene de manera vertical y horixzontal
+			*/
+			.content_nitSocialsIcon {
+				display: flex;
+				justify-content: space-around;
+				background-color: #f3f9ff;
+				align-items: center;
+				height: 90px;
+
+				/*
+					box_nitLogo
+				*/
+				.box_nitLogo {
+
+					/*
+						tag-a: definimos position: relative ya que uno de sus elementos
+						hijos puede tener definido position: absolute
+					*/
+					a {
+						text-decoration: none;
+						position: relative;
+						letter-spacing: 0.1rem;
+
+						/*
+							pseudo elemento before: definimos display block
+							para hacer visible este elemento, definimos position: absolute
+							con sus propiedades left y bottom para posicionar este
+							con referencia a su padre, finalmente definimos width y height
+							para darle tamaño al elemento en este caso un borde en la parte 
+							inferior de la tag-h3
+						*/
+						&::before {
+							content: '';
+							display: block;
+							position: absolute;
+							left: 0;
+							bottom: 0;
+							background-color: red;
+							width: 70px;
+							height: 3px;
+						}
+					}
+				} 
+
+				/*
+					box_socials_media
+				*/
+				.box_socialsMedia {
+
+					/*
+						@query 991px <== : definimos display: none para que 
+						este elemento no sea visible en esta medida
+					*/
+					@media (max-width: 991px) {
+						display: none;
+					}
+					
+					/*
+						tag-a
+					*/
+					a {
+						text-decoration: none;
+
+						/*
+							tag-svg: es importante definir vertical-align: middle
+							para eliminar los espaciados que genera el navegador
+							en los iconos
+						*/
+						svg {
+							vertical-align: middle;
+							fill: #333;
+							width: 24px;
+							height: 24px;
+						}
+					} 	
+				}
+
+				/*
+					box_iconBurger
+				*/
+				.box_iconBurger {
+					cursor: pointer;
+
+					/*
+						js_transform_iconX: clase añadida con javascript la cual
+						relaciona a line_top y añade un transform: translateY y
+						rotate con las que posicionamos la linea para formar el
+						menu-X
+					*/
+					&.js_transform_iconX .line_top {
+						transform: translateY(10px) rotate(-90deg);
+					}
+
+					/*
+						js_transform_iconX: clase añadida con javascript la cual
+						relaciona a line_center y añade un opacity: 0 el cual 
+						desvanece la linea
+					*/
+					&.js_transform_iconX .line_center {
+						opacity: 0;
+					}
+
+					/*
+						js_transform_iconX: clase añadida con javascript la cual
+						relaciona a line_bottom y añade un transform: translateY y
+						rotate con las que posicionamos la linea para formar el
+						menu-X
+					*/
+					&.js_transform_iconX .line_bottom {
+						transform: translateY(-4px) rotate(180deg);
+					}
+
+					/*
+						@query 992px ==> : definimos display: none para que 
+						este elemento no sea visible en esta medida
+					*/
+					@media (min-width: 992px) {
+						display: none;
+					}
+
+					/*
+						tag-span: definimos la propiedad display: block mas width y height 
+						para hacer visible las lineas del icono menu burger darles tamaño	
+					*/
+					span {
+						display: block;
+						width: 26px;
+						height: 3px;
+						background-color: red;
+						border-radius: 10px; 
+						transition: all 0.3s;
+
+						/*
+							seleccionamos el segundo elemento tag-span y generamos
+							un margen
+						*/
+						&:nth-child(2) {
+							margin: 4px 0;
+						}
+					}
+				}
+			}
+
+			/*
+				tag-nav: definimos position: releative debido a que uno de
+				sus elementos hijos puede tener definido position: absolute
+			*/
+			nav {
+				position: relative;
+				
+				/*
+					tag-ul
+				*/
+				ul {
+					background-color: rgb(241, 241, 241);
+
+					/*
+						@query 991px <== : definimos position: absolute y su
+						propiedade left: -100% para dezplazar el menu de navegacion 
+						fuera del viewport, finalmente un width y height que permitan
+						que este ocupe todo el ancho y alto del viewpor
+					*/
+					@media (max-width: 991px) {
+						position: fixed;
+						left: -100%;
+						z-index: 5;
+						width: 100%;
+						height: 100vh;
+						transition: left 0.3s;
+
+						/*
+							js_show_menu: clase añadida con javascript la cual
+							añade un left: 0 el cual nos permite hacer visible
+							el menu
+						*/
+						&.js_show_menu {
+							left: 0;
+						}
+					}
+
+					/*
+						@query 992px ==> : definimos flexbox y sus propieades
+						justify-content y align-items mas un height para centrar 
+						de manera vertical los elementos que este contiene
+					*/
+					@media (min-width: 992px) {
+						display: flex;
+						justify-content: center;
+						height: 60px;
+						align-items: center;
+					}
+
+					/*
+						tag-li
+					*/
+					li {
+						list-style: none;
+						padding: 16px 10px;
+
+						/*
+							cuando hacemos :hover sobre tag-li, relacionamos a
+							tag-a y cambiamos su color
+						*/
+						&:hover a {
+							color: red;
+						}
+
+						/*
+							cuando hacemos :hover sobre tag-li, relacionamos a
+							tag-svg y cambiamos su color
+						*/
+						&:hover svg {
+							fill: red;
+						}
+						
+						/*
+							@query 991px <== : definimos un borde en la parte
+							inferior de las tag-li en esta medida
+						*/
+						@media (max-width: 991px) {
+							border-bottom: 1px solid #c1c1c1;
+						}
+
+						/*
+							tag-a: definimos display: inline-flex y align-items
+							para centrar de manera vertical los elementos que 
+							este contiene
+						*/
+						a {
+							text-decoration: none;
+							color: #ccc;
+							display: inline-flex;
+							align-items: center;
+
+							/*
+								js_links_active: cuando tag-a tiene esta clase
+								cambiamos su color
+							*/
+							&.js_links_active {
+								color: red;
+							}
+
+							/*
+								js_links_active: cuando tag-a tiene esta clase
+								relacionamos a tag-svg y cambiamos su color
+							*/
+							&.js_links_active svg {
+								fill: red;
+							}
+
+							/*
+								tag-svg: definimos un margin-right para separ
+								los iconos de los enlaces
+							*/
+							svg {
+								fill: #ccc;
+								width: 24px;
+								height: 24px;
+								margin-right: 12px;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+
+main, footer {
+    text-align: center;
+    background-color: #88e4e4;
+    color: #fff;
+    height: 600px;
+}
+
+footer {
+    background-color: dodgerblue;
+    height: 140px;
+}

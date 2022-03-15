@@ -1,0 +1,214 @@
+@charset "UTF-8";
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/*
+	section_header
+*/
+.section_header {
+  /*
+  	js_scroll_header: clase añadida con javascript, definimos 
+  	position: fixed y sus propiedades left, top, right y z-index 
+  	para fijar el menu de navegacion y que este tome el ancho total 
+  	del viewport
+  */
+  /*
+  	container_header
+  */
+}
+.section_header.js_scroll_header {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  z-index: 9;
+  background-color: #fff;
+  transition: box-shadow 0.3s;
+}
+.section_header .container_header {
+  /*
+  	header_flexbox
+  */
+}
+.section_header .container_header .flexbox_header {
+  /*
+  	box_iconBurger_logoNit: definimos flexbox y sus propiedades
+  	justify-content y align-items mas un height para centrar los 
+  	elementos que este contiene de manera vertical y horizontal,
+  	finalmente un padding para separar el contenido de los bordes
+  */
+}
+.section_header .container_header .flexbox_header .box_iconBurger_logoNit {
+  display: flex;
+  justify-content: space-between;
+  height: 90px;
+  align-items: center;
+  padding: 0 30px;
+  /*
+  	tag-svg: (icon-burger)
+  */
+  /*
+  	tag-a: definimos position: relative ya que en el pseudo-elemento
+  	definimos position: absolute
+  */
+}
+.section_header .container_header .flexbox_header .box_iconBurger_logoNit svg {
+  fill: #333;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+}
+.section_header .container_header .flexbox_header .box_iconBurger_logoNit a {
+  text-decoration: none;
+  position: relative;
+  letter-spacing: 0.1rem;
+  /*
+  	pseudo elemento before: definimos display block
+  	para hacer visible este elemento, definimos position: absolute
+  	con sus propiedades left y bottom para posicionar este
+  	con referencia a su padre, finalmente definimos width y height
+  	para darle tamaño al elemento en este caso un borde en la parte 
+  	inferior de la tag-a
+  */
+}
+.section_header .container_header .flexbox_header .box_iconBurger_logoNit a::before {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  background-color: purple;
+  width: 70px;
+  height: 3px;
+}
+.section_header .container_header .flexbox_header .content_nav_header {
+  /*
+  	nav_header: definimos position: fixed para fija este elemento,
+  	finalmente un width y height para que este ocupe todo el 
+  	ancho y alto del viewpor
+  */
+}
+.section_header .container_header .flexbox_header .content_nav_header .nav_header {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  transition: 0.3s;
+  /*
+  	js_bg_color: clase añadida con javascript que agrega
+  	un color de fondo a nav_header
+  */
+  /*
+  	ul_header: definimos position: relative para implementar
+  	su propiedad bottom en una animacion, finalmente un width 
+  	y height para darle tamaño al menu y que ocupe todo el alto 
+  	de su contenedor padre
+  */
+}
+.section_header .container_header .flexbox_header .content_nav_header .nav_header.js_bg_color {
+  background-color: #33333377;
+}
+.section_header .container_header .flexbox_header .content_nav_header .nav_header .ul_header {
+  display: none;
+  position: relative;
+  background-color: #fff;
+  width: 250px;
+  height: 100%;
+  -webkit-animation: modalNav 0.7s ease-in-out alternate;
+          animation: modalNav 0.7s ease-in-out alternate;
+  /*
+  	modalMenu
+  */
+  /*
+  	js_show_menu: clase añadida con javascript la cual
+  	añade display: block a ul_header haciendolo visible
+  */
+  /*
+  	tag-li
+  */
+}
+@-webkit-keyframes modalNav {
+  /*
+  	from: definimos bottom: -330px para que este se
+  	desplace hacia abajo y con opacity: 0 lo removemos
+  	de la vista
+  */
+  from {
+    bottom: -330px;
+    opacity: 0;
+  }
+  /*
+  	to: definimos bottom: 0px para que este se
+  	desplace hacia arriba y con opacity: 1 hacemos que
+  	sea visible nuevamente
+  */
+  to {
+    bottom: 0px;
+    opacity: 1;
+  }
+}
+@keyframes modalNav {
+  /*
+  	from: definimos bottom: -330px para que este se
+  	desplace hacia abajo y con opacity: 0 lo removemos
+  	de la vista
+  */
+  from {
+    bottom: -330px;
+    opacity: 0;
+  }
+  /*
+  	to: definimos bottom: 0px para que este se
+  	desplace hacia arriba y con opacity: 1 hacemos que
+  	sea visible nuevamente
+  */
+  to {
+    bottom: 0px;
+    opacity: 1;
+  }
+}
+.section_header .container_header .flexbox_header .content_nav_header .nav_header .ul_header.js_show_menu {
+  display: block;
+}
+.section_header .container_header .flexbox_header .content_nav_header .nav_header .ul_header li {
+  list-style: none;
+  padding: 16px 30px;
+  border-bottom: 1px solid #ccc;
+  /*
+  	cuando hacemos :hover sobre tag-li, relacionamos a
+  	tag-a y cambiamos su color
+  */
+  /*
+  	tag-a: definimos display: inline-flex y align-items
+  	para centrar de manera vertical los elementos que 
+  	este contiene
+  */
+}
+.section_header .container_header .flexbox_header .content_nav_header .nav_header .ul_header li:hover a {
+  color: purple;
+}
+.section_header .container_header .flexbox_header .content_nav_header .nav_header .ul_header li a {
+  text-decoration: none;
+  color: #ccc;
+  /*
+  	js_links_active: clase añadida con javascript que cambia
+  	el color de tag-a
+  */
+}
+.section_header .container_header .flexbox_header .content_nav_header .nav_header .ul_header li a.js_links_active {
+  color: purple;
+}
+
+main, footer {
+  text-align: center;
+  background-color: #88e4e4;
+  color: #fff;
+  height: 600px;
+}
+
+footer {
+  background-color: dodgerblue;
+  height: 140px;
+}/*# sourceMappingURL=style.css.map */

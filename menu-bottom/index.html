@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu bottom</title>
+    <link rel="stylesheet" href="./sass/style.css">
+</head>
+<body>
+    <!--  
+        section_header: contenedor de la seccion, le definimos
+        un ID para implementar este elemento en javascript
+    -->
+    <header class="section_header" id="scroll-header">
+        <!--  
+            container_header: contenedor definido para manejar el 
+            responsive de la seccion
+        -->
+        <div class="container_header">
+
+            <!--  
+                header_flexbox: contenedor definido para implementar
+                flexbox o grid en la seccion
+            -->
+            <div class="flexbox_header">
+                <!-- 
+                    box_iconBurger_logoNit: contenedor de 1 tag-svg y 1 tag-a
+                    y box_logoNit
+                -->
+                <div class="box_iconBurger_logoNit">
+                    <!--  
+                        tag-svg: en esta definimos el icono burger, , le definimos
+                        un ID para implementar este elemento en javascript
+                    -->
+                    <svg
+                        viewBox="0 0 24 24"
+                        id="icon-burger"
+                    >
+                        <path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z"></path>
+                    </svg>    
+
+                    <!-- 
+                        tag-a: en esta definimos el logo o nit empresarial 
+                    -->
+                    <a href="./index.html">CITLIALLY</a>
+                </div>
+
+                <!-- 
+                    content_nav_header: este contenedor es importante para crear 
+                    la mascara oscura del navabar, contiene una tag-nav
+                -->
+                <div class="content_nav_header">
+                    <!--  
+                        nav_header: contenedor de 1 tag-ul, le definimos un ID para 
+                        implementar este elemento en javascript
+                    -->
+                    <nav class="nav_header" id="nav-header">
+                        <!--  
+                            tag-ul: contenedor de 5 tags-li, le definimos un ID para 
+                            implementar este elemento en javascript
+                        -->			
+                        <ul class="ul_header" id="ul-header">
+                            <!--  
+                                tag-li: contenedor de 1 tag-a
+                            -->
+                            <li>
+                                <!--  
+                                    tag-a: en esta definimos el enlace del menu de navegacion
+                                -->
+                                <a href="#" class="js_links_active">Inicio</a>
+                            </li>				
+                            
+                            <li>
+                                <a href="#">Servicios</a>			
+                            </li>
+                            
+                            <li>
+                                <a href="#">Tienda</a>										
+                            </li>
+
+                            <li>
+                                <a href="#">Contacto</a>
+                            </li>
+                            
+                            <li>
+                                <a href="#">Blog</a>
+                            </li>                 
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+    </header>
+    
+    <main>main</main>
+
+    <footer>footer</footer>
+
+    <script src="./js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,313 @@
+@charset "UTF-8";
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/*
+	section_header
+*/
+.section_header {
+  /*
+  	js_scroll_header: clase añadida con javascript, definimos 
+  	position: fixed y sus propiedades left, top, right y z-index 
+  	para fijar el menu de navegacion y que este tome el ancho total 
+  	del viewport
+  */
+  /*
+  	container_header: definimos un margin: 0 auto para que este
+         contenedor siempre este centrado
+  */
+}
+.section_header.js_scroll_header {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  z-index: 9;
+  background-color: #fff;
+  transition: box-shadow 0.3s;
+}
+.section_header .container_header {
+  /*
+  	@query 992px ==> : definimos un width mas margin: 0 auto 
+  	para que este contenedor siempre este centrado
+  */
+  /*
+  	flexbox_header
+  */
+}
+@media (min-width: 992px) {
+  .section_header .container_header {
+    width: 90%;
+    margin: 0 auto;
+  }
+}
+.section_header .container_header .flexbox_header {
+  /*
+  	@query 992px ==> : definimos flexbox y sus propiedades 
+  	justify-content y align-items mas un height para centrar
+  	de manera vertical y horizontal los elementos que este 
+  	contiene para esta medida
+  */
+  /*
+  	box_nitLogo_iconBurger
+  */
+  /*
+  	content_nav_header
+  */
+}
+@media (min-width: 992px) {
+  .section_header .container_header .flexbox_header {
+    display: flex;
+    justify-content: space-between;
+    height: 90px;
+    align-items: center;
+  }
+}
+.section_header .container_header .flexbox_header .box_nitLogo_iconBurger {
+  /*
+  	@query 991px <== : definimos flexbox y sus propiedades 
+  	justify-content y align-items mas un height para centrar
+  	de manera vertical y horizontal los elementos que este 
+  	contiene para esta medida
+  */
+  /*
+  	tag-a: definimos position: relative ya que en el pseudo-elemento
+  	definimos position: absolute
+  */
+  /*
+  	box_icon_menu
+  */
+}
+@media (max-width: 991px) {
+  .section_header .container_header .flexbox_header .box_nitLogo_iconBurger {
+    display: flex;
+    justify-content: space-between;
+    height: 90px;
+    align-items: center;
+    padding: 0 30px;
+  }
+}
+.section_header .container_header .flexbox_header .box_nitLogo_iconBurger a {
+  text-decoration: none;
+  position: relative;
+  letter-spacing: 0.1rem;
+  /*
+  	pseudo elemento before: definimos display block
+  	para hacer visible este elemento, definimos position: absolute
+  	con sus propiedades left y bottom para posicionar este
+  	con referencia a su padre, finalmente definimos width y height
+  	para darle tamaño al elemento en este caso un borde en la parte 
+  	inferior de la tag-a
+  */
+}
+.section_header .container_header .flexbox_header .box_nitLogo_iconBurger a::before {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  background-color: olivedrab;
+  width: 70px;
+  height: 3px;
+}
+.section_header .container_header .flexbox_header .box_nitLogo_iconBurger .box_icon_menu {
+  position: fixed;
+  right: 30px;
+  z-index: 99;
+  cursor: pointer;
+  /*
+  	js_transform_iconX: clase añadida con javascript la cual
+  	relaciona a line_top y añade un transform: translateY y
+  	rotate con las que posicionamos la linea para formar el
+  	menu-X
+  */
+  /*
+  	js_transform_iconX: clase añadida con javascript la cual
+  	relaciona a line_center y añade un opacity: 0 el cual 
+  	desvanece la linea
+  */
+  /*
+  	js_transform_iconX: clase añadida con javascript la cual
+  	relaciona a line_bottom y añade un transform: translateY y
+  	rotate con las que posicionamos la linea para formar el
+  	menu-X
+  */
+  /*
+  	@query 992px ==> : definimos display: none para que 
+  	este elemento no sea visible en esta medida
+  */
+  /*
+  	tag-span: definimos la propiedad display: block mas width y height 
+  	para hacer visible las lineas del icono menu burger darles tamaño	
+  */
+}
+.section_header .container_header .flexbox_header .box_nitLogo_iconBurger .box_icon_menu.js_transform_iconX .line_top {
+  transform: translateY(4px) rotate(-45deg);
+}
+.section_header .container_header .flexbox_header .box_nitLogo_iconBurger .box_icon_menu.js_transform_iconX .line_center {
+  opacity: 0;
+}
+.section_header .container_header .flexbox_header .box_nitLogo_iconBurger .box_icon_menu.js_transform_iconX .line_bottom {
+  transform: translateY(-9px) rotate(45deg);
+}
+@media (min-width: 992px) {
+  .section_header .container_header .flexbox_header .box_nitLogo_iconBurger .box_icon_menu {
+    display: none;
+  }
+}
+.section_header .container_header .flexbox_header .box_nitLogo_iconBurger .box_icon_menu span {
+  display: block;
+  width: 26px;
+  height: 3px;
+  background-color: #333;
+  border-radius: 10px;
+  transition: all 0.3s;
+  /*
+  	seleccionamos el segundo elemento tag-span y generamos
+  	un margen
+  */
+}
+.section_header .container_header .flexbox_header .box_nitLogo_iconBurger .box_icon_menu span:nth-child(2) {
+  margin: 4px 0;
+}
+.section_header .container_header .flexbox_header .content_nav_header {
+  /*
+  	@query 991px <== : definimos fixed y sus propiedades 
+  	top, left, right bottom y z-index para que esta caja
+  	ocupe el 100% del viewport, finalmente display:none 
+  	para remover de la vista este elemento
+  */
+  /*
+  	nav_header
+  */
+}
+@media (max-width: 991px) {
+  .section_header .container_header .flexbox_header .content_nav_header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 9;
+    display: none;
+    background-color: rgba(0, 0, 0, 0.4);
+    /*
+    	js_show_menu: clase añadida con javascript donde
+    	definimos flexbox con su propiedad justify-content 
+    	para posicionar los elementos que este contiene a 
+    	la izquierda del viewport 
+    */
+    /*
+    	js_show_menu: clase añadida con javascript que relaciona
+    	a nav_header y añade un transform: translateX(0) que 
+    	translada el menu de navegacion a su posicion original
+    */
+  }
+  .section_header .container_header .flexbox_header .content_nav_header.js_show_menu {
+    display: flex;
+    justify-content: flex-end;
+  }
+  .section_header .container_header .flexbox_header .content_nav_header.js_show_menu .nav_header {
+    transform: translateX(0);
+  }
+}
+.section_header .container_header .flexbox_header .content_nav_header .nav_header {
+  /*
+  	@query 991px <== : definimos un height: 100% para que tome
+  	todo el alto del viewport para esta medida y un padding 
+  	para separar el contenido de los bordes del contenedor, en
+  	especial de la parte superior, finalmente transform: translateX(100%) 
+  	que translada el menu de navegacion desapareciendolo del
+  	maquetado
+  */
+  /*
+  	ul_header
+  */
+}
+@media (max-width: 991px) {
+  .section_header .container_header .flexbox_header .content_nav_header .nav_header {
+    background-color: #fff;
+    width: 280px;
+    height: 100%;
+    padding: 80px 25px 0;
+    transform: translateX(100%);
+    transition: all 0.3s ease;
+  }
+}
+.section_header .container_header .flexbox_header .content_nav_header .nav_header .ul_header {
+  /*
+  	@query 992px ==> : definimos flexbox para poner en 
+  	linea los elementos que este contiene
+  */
+  /*
+  	tag-li
+  */
+}
+@media (min-width: 992px) {
+  .section_header .container_header .flexbox_header .content_nav_header .nav_header .ul_header {
+    display: flex;
+  }
+}
+.section_header .container_header .flexbox_header .content_nav_header .nav_header .ul_header li {
+  list-style: none;
+  cursor: pointer;
+  /*
+  	cuando hacemos :hover sobre tag-li, relacionamos a
+  	tag-a y cambiamos su color
+  */
+  /*
+  	@query 991px <== : centramos los elementos,
+  	añadimos un borde y generamos espaciado 
+  	entre los items del menu de navegacion para
+  	esta medida
+  */
+  /*
+  	@query 992px ==> : definimos un espaciado para esta
+  	medida
+  */
+  /*
+  	tag-a
+  */
+}
+.section_header .container_header .flexbox_header .content_nav_header .nav_header .ul_header li:hover a {
+  color: olivedrab;
+}
+@media (max-width: 991px) {
+  .section_header .container_header .flexbox_header .content_nav_header .nav_header .ul_header li {
+    text-align: center;
+    border: 2px solid #8c8c8c;
+    padding: 12px 10px;
+    margin-top: 10px;
+  }
+}
+@media (min-width: 992px) {
+  .section_header .container_header .flexbox_header .content_nav_header .nav_header .ul_header li {
+    padding-left: 40px;
+  }
+}
+.section_header .container_header .flexbox_header .content_nav_header .nav_header .ul_header li a {
+  text-decoration: none;
+  color: #ccc;
+  /*
+  	js_link_active: clase añadida con javascript la
+  	cual cambia el color de las tag-a
+  */
+}
+.section_header .container_header .flexbox_header .content_nav_header .nav_header .ul_header li a.js_links_active {
+  color: olivedrab;
+}
+
+main, footer {
+  text-align: center;
+  background-color: #8c8c8c;
+  color: #fff;
+  height: 600px;
+}
+
+footer {
+  background-color: red;
+  height: 140px;
+}/*# sourceMappingURL=style.css.map */

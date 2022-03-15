@@ -1,0 +1,232 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*
+	section_header
+*/
+.section_header {
+	
+	/*
+		js_scroll_header: clase añadida con javascript, definimos 
+		position: fixed y sus propiedades left, top, right y z-index 
+		para fijar el menu de navegacion y que este tome el ancho total 
+		del viewport
+	*/
+	&.js_scroll_header {
+		position: fixed;
+		left: 0;
+		top: 0;
+		right: 0;
+		z-index: 9;
+		background-color: #fff;
+		// box-shadow: 0 2px 10px #333;
+		transition: box-shadow .3s;
+	}
+
+	/*
+		container_header
+	*/
+	.container_header {
+		/*
+			@query 992px ==> : definimos un width mas margin: 0 auto 
+			para que este contenedor siempre este centrado
+		*/
+		@media (min-width: 992px) {
+			width: 90%;
+			margin: 0 auto;
+		}
+
+		/*
+			header_flexbox
+		*/
+		.flexbox_header {
+			/*
+				@query 992px ==> : definimos flexbox y sus propiedades 
+				justify-content y align-items mas un height para centrar
+				de manera vertical y horizontal los elementos que este 
+				contiene para esta medida
+			*/
+			@media (min-width: 992px) {
+				display: flex;
+				justify-content: space-between;
+				height: 90px;
+				align-items: center;
+			}
+	
+			/*
+				box_logoNit_iconBurger
+			*/
+			.box_logoNit_iconBurger {
+				/*
+					@query 991px <== : definimos flexbox y sus propiedades 
+					justify-content y align-items mas un height para centrar
+					de manera vertical y horizontal los elementos que este 
+					contiene para esta medida
+				*/
+				@media (max-width: 991px) {
+					display: flex;
+					justify-content: space-between;
+					height: 90px;
+					align-items: center;
+					padding: 0 30px;
+				}
+	
+				/*
+					tag-a: definimos position: relative ya que en el pseudo-elemento
+					definimos position: absolute
+				*/
+				a {
+					text-decoration: none;
+					position: relative;
+					letter-spacing: 0.1rem;
+	
+					/*
+						pseudo elemento before: definimos display block
+						para hacer visible este elemento, definimos position: absolute
+						con sus propiedades left y bottom para posicionar este
+						con referencia a su padre, finalmente definimos width y height
+						para darle tamaño al elemento en este caso un borde en la parte 
+						inferior de la tag-a
+					*/
+					&::before {
+						content: '';
+						display: block;
+						position: absolute;
+						left: 0;
+						bottom: 0;
+						background-color: gold;
+						width: 70px;
+						height: 3px;
+					}
+				}
+	
+				/*
+					tag-svg: (icon-burger)
+				*/
+				svg {
+					fill: #333;
+					width: 33px;
+					height: 33px;
+					cursor: pointer;
+	
+					/*
+						@query 992px ==> : removemos el icon burger
+						en esta medida
+					*/
+					@media (min-width: 992px) {
+						display: none;
+					}
+				}
+			} 
+
+			/*
+				nav_header
+			*/
+			.nav_header {
+				/*
+					@query 991px <== : definimos un height: 0 para que este 
+					contenedor no tenga altura, finalmente con overflow: hidden 
+					ocultamos el contenido
+				*/
+				@media (max-width: 991px) {
+					height: 0;
+					overflow: hidden;
+					transition: height .3s;
+					
+					/*
+						js_show_menu: clase añadida con javascript que añade
+						un height del alto total del viewport
+					*/
+					&.js_show_menu {
+						height: 100vh;
+					}
+				}
+			
+				/*
+					ul_header
+				*/
+				.ul_header {
+					/*
+						@query 992px ==> : definimos flexbox para poner en 
+						linea los elementos que este contiene
+					*/
+					@media (min-width: 992px) {
+						display: flex;
+					}
+		
+					/*
+						tag-li
+					*/
+					li {
+						list-style: none;
+						cursor: pointer;
+
+						/*
+							cuando hacemos :hover sobre tag-li, relacionamos a
+							tag-a y cambiamos su color
+						*/
+						&:hover a {
+							color: gold;
+						}
+						
+						/*
+							@query 991px <== : definimos un espaciado para esta
+							medida
+						*/
+						@media (max-width: 991px) {
+							padding: 16px 30px;
+
+							/*
+								cuando hacemos :hover sobre tag-li, cambiamos su 
+								color de fondo
+							*/
+							&:hover {
+								background-color: #fff;
+							}
+						}
+						
+						/*
+							@query 992px ==> : definimos un espaciado para esta
+							medida
+						*/
+						@media (min-width: 992px) {
+							padding-left: 30px;
+						}
+		
+						/*
+							tag-a
+						*/
+						a {
+							text-decoration: none;
+							color: #ccc;
+		
+							/*
+								js_links_active: clase añadida con javascript que
+								cambia el color de tag-a
+							*/
+							&.js_links_active {
+								color: gold;
+							}
+						}
+					}      
+				}
+			} 
+		}  
+	}     
+}
+
+
+main, footer {
+    text-align: center;
+    background-color: #8c8c8c;
+    color: #fff;
+    height: 600px;
+}
+
+footer {
+    background-color: red;
+    height: 140px;
+}
